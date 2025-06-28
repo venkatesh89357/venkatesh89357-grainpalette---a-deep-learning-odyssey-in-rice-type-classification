@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rice Type Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body { margin: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+    header {
+      background: url('https://t3.ftcdn.net/jpg/01/27/54/18/360_F_127541884_dZmjo0PcGxjYRUgpqrbT4nzmEcte8G5c.jpg') center/cover no-repeat;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    nav {
+      background: black;
+      padding: 15px 0;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #4caf50;
+    }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; margin-bottom: 20px; }
+    header button {
+      padding: 12px 30px;
+      font-size: 16px;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    header button:hover {
+      background: white;
+      color: black;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .about-icons {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .about-icons div {
+      width: 200px;
+      padding: 20px;
+    }
+    .about-icons i {
+      font-size: 40px;
+      color: #4caf50;
+    }
+    .testimonial {
+      background: url('https://t3.ftcdn.net/jpg/02/16/47/84/360_F_216478405_8BiktHuFegtWgDueFicJTJpvjHCO5qk3.jpg') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+    }
+    .testimonial p {
+      font-style: italic;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .testimonial img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .contact {
+      background: #f1f1f1;
+    }
+    .contact-form {
+      max-width: 800px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 48%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .contact-form textarea {
+      width: 100%;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+    .contact-info div {
+      text-align: center;
+      padding: 20px;
+    }
+    .contact-info i {
+      font-size: 24px;
+      color: #4caf50;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+    <a href="{{ url_for('predict') }}">Predict</a>
+  </nav>
+
+  <header id="home">
+    <h1>Welcome to Rice Type Detection</h1>
+    <p>This model can detect rice type based on rice images.</p>
+    <a href="{{ url_for('predict') }}"><button>Predict</button></a>
+  </header>
+
+  <section id="about">
+    <h2>About the Rice Type Classification Model</h2>
+    <p>This model uses CNN + Transfer Learning to classify rice grain types.</p>
+    <div class="about-icons">
+      <div>
+        <i class="fas fa-chart-line"></i>
+        <h4>Accuracy</h4>
+        <p>97% model accuracy on test data</p>
+      </div>
+      <div>
+        <i class="fas fa-database"></i>
+        <h4>Dataset</h4>
+        <p>Dataset from Kaggle (15,000 samples/class)</p>
+      </div>
+      <div>
+        <i class="fas fa-seedling"></i>
+        <h4>Rice Types</h4>
+        <p>Detects: Arborio, Basmati, Ipsala, Jasmine, Karacadag</p>
+      </div>
+      <div>
+        <i class="fas fa-network-wired"></i>
+        <h4>Architecture</h4>
+        <p>MobileNetV2 used with transfer learning</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial" id="testimonials">
+    <p><em>“I check the type of rice before buying it from farmers using this model.”</em></p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+      <div><i class="fas fa-map-marker-alt"></i><p>Tirupathi District, AP, India</p></div>
+      <div><i class="fas fa-envelope"></i><p>info@example.com</p></div>
+      <div><i class="fas fa-phone"></i><p>+91 9876543210</p></div>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Subject">
+      <textarea rows="4" placeholder="Message"></textarea>
+      <input type="submit" value="Send Message" style="width: 100%; background: #4caf50; color: white; border: none;">
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GrainPalette | Rice Type Detection</p>
+  </footer>
+
+</body>
+</html>

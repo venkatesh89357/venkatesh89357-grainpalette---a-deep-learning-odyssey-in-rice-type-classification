@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload Rice Image for Prediction</title>
+  <style>
+    body { background-image: url('https://www.science.org/do/10.1126/science.aau2108/abs/cc_RTR352HJ_copy.jpg'); background-size: cover; color: white;
+        font-family: Arial, sans-serif; padding: 40px; text-align: center; }
+    input[type="file"] { margin: 20px 0; }
+    button { background-color: #4caf50; color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    .error { color: red; margin-top: 20px; }
+    a { display: block; margin-top: 30px; text-decoration: none; color: #4caf50; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body
+  <b><h1>Rice Type Detection - Upload Image</h1></b>
+  <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" required />
+      <br />
+      <button type="submit">Predict</button>
+  </form>
+  
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+
+  <a style = "color : red;" href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

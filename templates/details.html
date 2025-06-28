@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Details Page - Rice Type Classification</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    /* Navigation Bar */
+    .navbar { background: #000; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .navbar .logo { color: #fff; font-size: 24px; font-weight: bold; text-decoration: none; }
+    .navbar ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+    .navbar ul li a { color: #fff; text-decoration: none; font-size: 16px; }
+    .navbar ul li a.active, .navbar ul li a:hover { color: #4caf50; }
+
+    /* Header Banner */
+    .banner { background: #f0f0f0; padding: 40px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .banner h1 { margin: 0; font-size: 36px; color: #333; }
+    .breadcrumb { font-size: 14px; color: #666; }
+    .breadcrumb a { color: blue; text-decoration: none; }
+
+    /* Content Section */
+    .content { background: #fff; max-width: 600px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+    .content h2 { margin: 0 0 20px; font-size: 40px; color: #333; }
+    .content label { font-size: 16px; color: #333; margin-right: 10px; }
+    .content input[type="file"] { font-size: 18px;padding:10px;margin-top:10px; }
+    
+
+.content button[type="submit"] {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #d0e0d0;
+  color: rgb(63, 58, 58);
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.content button[type="submit"]:hover {
+  background-color: #747a74;
+}
+    .content .upload-btn { display: inline-block; margin-top: 20px; color: #f00; border: 1px solid #f00; padding: 5px 15px; text-decoration: none; font-size: 16px; }
+    .content .upload-btn:hover { background: #fdf0f0; }
+
+    /* Footer Blank Strip */
+    .footer-strip { background: #000; height: 5px; margin-top:80px;  }
+
+    /* Footer Info */
+    .footer { background: #111; color: #ccc; padding: 40px 20px; }
+    .footer .columns { display: flex; flex-wrap: wrap; gap: 40px; max-width: 900px; margin: 0 auto; }
+    .footer .column { flex: 1; min-width: 90px; }
+    .footer h3 { color: #fff; margin-bottom: 5px; font-size: 18px; padding-top:30px;}
+    .footer p, .footer li, .footer a { font-size: 14px; color: #ccc; }
+    .footer a { text-decoration: none; }
+    .footer a:hover { color: #4caf50; }
+    .footer ul { list-style: none; padding: 0; }
+    .footer ul li { margin-bottom: 4%; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="/" class="logo">RICE TYPE CLASSIFICATION</a>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Testimonials</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="/details" class="active">Predict</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner with Title and Breadcrumb -->
+  <div class="banner">
+    <h1>Results Page</h1>
+    <div class="breadcrumb">
+      <a href="/">Home</a> / Details Page
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Upload Your Image</h2>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+      {% if prediction_text %}
+  
+{% endif %}
+
+  <input type="file" name="image" required>
+  <button type="submit">Upload</button>
+
+
+  <div style="margin-top: 30px; font-size: 20px; color: green;">
+    <strong style="color : red;">Result : </strong> 
+    <p style="color: black;">Base on the given image as input, the model predicts the rice type as:</p>
+      {{ prediction_text }}
+  </div>
+</form>
+
+  </div>
+
+  <!-- Footer Blank Strip -->
+  <div class="footer-strip"></div>
+
+  <!-- Footer Info -->
+  <div class="footer">
+    <div class="columns">
+      <div class="column">
+        <h3>Rice</h3>
+        <p>Tirupati<br>AP, 517507<br>India</p>
+        <p>Phone: +91 9876543210</p>
+        <p>Email: info@gmail.com</p>
+      </div>
+      <div class="column">
+        <h3>Useful Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Terms of service</a></li>
+          <li><a href="#">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Product Management</a></li>
+          <li><a href="#">Marketing</a></li>
+          <li><a href="#">Graphic Design</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
