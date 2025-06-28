@@ -1,0 +1,121 @@
+body { margin: 0; font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
+    header {
+      background: url('https://t3.ftcdn.net/jpg/01/27/54/18/360_F_127541884_dZmjo0PcGxjYRUgpqrbT4nzmEcte8G5c.jpg') center/cover no-repeat;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+    nav {
+      background: black;
+      padding: 15px 0;
+      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #4caf50;
+    }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; margin-bottom: 20px; }
+    header button {
+      padding: 12px 30px;
+      font-size: 16px;
+      border: 2px solid white;
+      background: transparent;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    header button:hover {
+      background: white;
+      color: black;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .about-icons {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .about-icons div {
+      width: 200px;
+      padding: 20px;
+    }
+    .about-icons i {
+      font-size: 40px;
+      color: #4caf50;
+    }
+    .testimonial {
+      background: url('https://t3.ftcdn.net/jpg/02/16/47/84/360_F_216478405_8BiktHuFegtWgDueFicJTJpvjHCO5qk3.jpg') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+    }
+    .testimonial p {
+      font-style: italic;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .testimonial img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .contact {
+      background: #f1f1f1;
+    }
+    .contact-form {
+      max-width: 800px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 48%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .contact-form textarea {
+      width: 100%;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 40px auto;
+    }
+    .contact-info div {
+      text-align: center;
+      padding: 20px;
+    }
+    .contact-info i {
+      font-size: 24px;
+      color: #4caf50;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
