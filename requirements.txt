@@ -3,3 +3,4 @@ tensorflow
 numpy
 pillow
 opencv-python
+opencv-contrib-python
